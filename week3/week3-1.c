@@ -1,42 +1,36 @@
-#include <stdio.h>
+#include <stdio.h>  
+float *maxArrays(float *a, float *b, float *arr3)  
+{
 
-float maxArrays(float array1[], float array2[]);
-
-int main() {
-    float arr1[] = {0.7, 3.3, 0.5, 10.3};
-    float arr2[] = {4.1, 1.5, 0.5, 2.3};
-    
-    
-    printf("Array 1: ");
-    for (int i = 0; i <= 3; i++) {
-        printf("%f ", arr1[i]);
-    }
-    printf("\nArray 2: ");
-    for (int i = 0; i <= 3; i++) {
-        printf("%f ", arr2[i]);
-    }
-
-    float arr3;
-    float (*pointer)(float[3], float[3]) = &maxArrays;
-    arr3 = (*pointer)(arr1, arr2);
-    printf("%d\n", arr3);
-
-    return 0;
-}
-
-float maxArrays(float array1[], float array2[]) {
-    printf("%d\n", *array1);
-    int i;
-    int n = 4;
-    float arr3[3];
-
-    for (i = 0; i < n; i++) {  
-        if (array1[i] >= array2[i]) {
-            arr3[i] = array1[i];
+    for(int i=0;i<4;i++)  
+    {  
+        if (a[i] <= b[i]) {
+            arr3[i] = b[i];
         }
         else {
-            arr3[i] = array2[i];
+            arr3[i] = a[i];
         }
     }
-    return *arr3;
-}
+
+    return arr3;  
+}  
+
+int main()  
+{  
+    float arr1[] = {0.7, 3.3, 0.5, 10.3};
+
+    float arr2[] = {4.1, 1.5, 0.5, 2.3};
+
+    float arr3[4];
+    
+    float *n;  
+    
+    n=maxArrays(arr1, arr2, arr3);  
+
+    printf("\nElements of array are :");  
+    for(int i=0;i<4;i++)  
+        {  
+            printf("%lf ", n[i]);  
+        }  
+        return 0;  
+}  
