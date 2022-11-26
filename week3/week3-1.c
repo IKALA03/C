@@ -22,7 +22,7 @@ int main()
     float arr2[] = {4.1, 1.5, 0.5, 2.3};
 
     float arr3[4];
-    
+
     float *n;  
     
     n=maxArrays(arr1, arr2, arr3);  
