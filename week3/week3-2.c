@@ -3,7 +3,7 @@
 
 int zinLengte(char zin[]) {
     int length;
-    for (length=0; zin[length] != '\0'; ++length) // door deze for loop wordt 'length' +1 gedaan voor ieder karakter in 'zin'
+    for (length=0; zin[length] != '\0'; ++length); // door deze for loop wordt 'length' +1 gedaan voor ieder karakter in 'zin'
 
     return length;
 }
