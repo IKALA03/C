@@ -5,7 +5,7 @@ float * maxArrays(float *array1, float *array2, float *array3)
 
     for(int i=0;i<4;i++)  
     {  
-        if (array1[i] <= array2[i]) {
+        if (array1[i] >= array2[i]) {
             array3[i] = array1[i];
         }
         else {
