@@ -1,9 +1,8 @@
 #include <stdio.h>
-
 #define MAX 3
 
 struct opleiding {
-    char opleidingNaam[30];
+    char naam[30];
     int instroomjaar;
 };
 
@@ -13,11 +12,12 @@ struct student {
     struct opleiding opleiding;
 } data[MAX];
 
-struct student *s;
-int count;
-int i;
 
 int main (void) {
+    struct student *s;
+    int count;
+    int i;
+
     printf("3 namen (gesplits door een spatie): \n");
     scanf("%s %s %s", data[0].naam, data[1].naam, data[2].naam); // vraag om naam
 
@@ -26,9 +26,9 @@ int main (void) {
         scanf("%d", &data[i].leeftijd); // vraag om leeftijd
 
         printf("\nOpleiding van %s: ", data[i].naam);
-        scanf("%s", data[i].opleiding.opleidingNaam); // vraag om opleiding naam
+        scanf("%s", data[i].opleiding.naam); // vraag om opleiding naam
 
-        printf("\nInstroomjaar van %s op %s: ", data[i].naam, data[i].opleiding.opleidingNaam);
+        printf("\nInstroomjaar van %s op %s: ", data[i].naam, data[i].opleiding.naam);
         scanf("%d", &data[i].opleiding.instroomjaar); // vraag om instroomjaar van de opleiding
     }
 
@@ -40,7 +40,7 @@ int main (void) {
             count, 
             s->naam,
             s->leeftijd,
-            s->opleiding.opleidingNaam,
+            s->opleiding.naam,
             s->opleiding.instroomjaar);
             s++;   
     }
