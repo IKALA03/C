@@ -1,10 +1,11 @@
-#include <stdio.h>  
+#include <stdio.h>
 
-float * maxArrays(float *array1, float *array2, float *array3)  
-{
 
-    for(int i=0;i<4;i++)  
-    {  
+float *maxArrays(float * array1, float * array2, float * array3) {
+    int i;
+    int n = 3;
+    
+    for (i = 0; i <= n; i++) {  
         if (array1[i] >= array2[i]) {
             array3[i] = array1[i];
         }
@@ -12,16 +13,14 @@ float * maxArrays(float *array1, float *array2, float *array3)
             array3[i] = array2[i];
         }
     }
+}
 
-    return array3;  
-}  
 
-int main()  
-{  
+int main() {
     float arr1[] = {0.7, 3.3, 0.5, 10.3};
     float arr2[] = {4.1, 1.5, 0.5, 2.3};
     float arr3[4];
-    float * result;  
+    float * result;
     
     printf("Array 1: ");
     for (int i = 0; i <= 3; i++) {
@@ -33,14 +32,12 @@ int main()
     }    
     printf("\n");
 
-
-    result = maxArrays(arr1, arr2, arr3);  
-
-    printf("\nElements of array are :");  
-    for (int i=0;i<4;i++)  
-    {  
-        printf("%lf ", result[i]);  
-    }
-
-    return 0;  
-}  
+    maxArrays(arr1, arr2, arr3);
+    
+    printf("\nArray 3: ");
+    for (int i = 0; i <= 3; i++) {
+        printf("%f ", arr3[i]);
+    }        
+    
+    return 0;
+}
