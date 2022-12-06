@@ -6,7 +6,7 @@
 int main()
 {
     FILE* fp; 
-    FILE* newfile;
+    FILE* output;
     
     int count = 0; // totaal aantal karakters
     char filename[MAX_NAME] = "readme.txt"; // bestandsnaam
@@ -38,27 +38,27 @@ int main()
     fclose(fp); // sluit het bestand wanneer de code klaar is
 
 
-    newfile = fopen("newfile.txt", "a"); // open "newfile.txt" in append modus
-    if (newfile == NULL) {
+    output = fopen("output.txt", "a"); // open "output.txt" in append modus
+    if (output == NULL) {
         return 1; // als het bestand niet bestaat dan stopt de code
     }
-
+    printf("Output: \n");
     for (i = 0; i<count; ++i) { // for loop om elk karakter een ASCII karakter naar voren te shiften ...
         if (text[i] == *" ") {  // ... tenzij het een spatie is
             printf("%c", text[i]); 
-            fprintf(newfile, "%c", text[i]);   
+            fprintf(output, "%c", text[i]);   
         }
         else if (text[i] == *"\n") { // ... tenzij het een 'newline' teken is
             printf("%c", text[i]); 
-            fprintf(newfile, "%c", text[i]);   
+            fprintf(output, "%c", text[i]);   
         }
         else {
             printf("%c", text[i]+1);
-            fprintf(newfile, "%c", text[i]+1);   
+            fprintf(output, "%c", text[i]+1);   
         }
     }
 
-    printf("Het bestand %s heeft %d karakters\n ", filename, count); // laat aantal karakters zien
+    printf("\nHet bestand %s heeft %d karakters", filename, count); // laat aantal karakters zien
 
     return 0;
 }
