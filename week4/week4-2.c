@@ -2,29 +2,29 @@
 #include <stdlib.h>
 
 struct persoon {
-  char naam[15];
-  int leeftijd;
-};
+    char naam[15];
+    int leeftijd;
+}; // structure peroon, bevat naam en leeftijd
 
 int main() {
-  struct persoon *pointer;
-  int records;
+    struct persoon *pointer;
+    int records; // aantal records
+    
+    printf("Vul het aantal personen in dat je wilt toevoegen: ");
+    scanf("%d", &records); // vraag de gebruiker om hoeveel personen er toegevoegd moeten worden
+
+    pointer = (struct persoon *)malloc(records * sizeof(struct persoon)); // reserveer geheugen
+    for (int i = 0; i < records; ++i) { // voor ieder persoon wordt naam en leeftijd gevraagd
+        printf("Vul de naam en leeftijd in:\n"); 
+        scanf("%s %d", (pointer + i)->naam, &(pointer + i)->leeftijd);
+    }
+
+    printf("Ingevulde informatie:\n");  // laat de data zien die de gebruiker toegevoegd heeft
+    for (int i = 0; i < records; ++i) {
+        printf("Naam: %s\tLeeftijd: %d\n", (pointer + i)->naam, (pointer + i)->leeftijd);
+    }
   
-  printf("Vul het aantal personen in dat je wilt toevoegen: ");
-  scanf("%d", &records);
+    free(pointer); // maak geheugen vrij
 
-  pointer = (struct persoon *)malloc(records * sizeof(struct persoon));
-  for (int i = 0; i < records; ++i) {
-    printf("Vul de naam en leeftijd in:\n");
-    scanf("%s %d", (pointer + i)->naam, &(pointer + i)->leeftijd);
-  }
-
-  printf("Ingevulde informatie:\n");
-  for (int i = 0; i < records; ++i) {
-    printf("Naam: %s\tLeeftijd: %d\n", (pointer + i)->naam, (pointer + i)->leeftijd);
-  }
-
-  free(pointer);
-
-  return 0;
+    return 0;
 }
