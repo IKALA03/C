@@ -1,23 +1,22 @@
 #include <stdio.h>
 
-float omtrek( float *diameter );
-int main( void ){
-    float diameter;
-    printf("Vul de diameter in: "); 
-    scanf("%f", &diameter); // vraag om de diameter
+void *omtrek( float * diameter, float * area ) {
+    float pi = 3.14;
+    float omtrek = pi * *diameter;
 
-    float area;
-    float *pointer = &diameter; // creëer de pointer
-    area = omtrek(pointer); // gebruik de pointer om de omtrek te berekenen
-
-    printf("De omtrek is: %f\n", area); // laat de omtrek zien
+    *area = omtrek;
 }
 
-float omtrek ( float *diameter ) {
+int main( void ) {
+    float diameter;
     float area;
-    float pi = 3.14;
+    float *P_diameter = &diameter; // pointer die naar diameter wijst
+    float *P_area = &area; // pointer die naar area wijst
+    
+    printf("Vul de diameter in: "); 
+    scanf("%f", &diameter); // vraag om de diameter, diameter is hier een pointer!
 
-    area = pi * *diameter;
-
-    return area;
+    omtrek(P_diameter, P_area); // gebruik de pointers om de omtrek te berekenen
+    printf("De omtrek is: %f\n", area); // laat de omtrek zien
+    return 0;
 }
